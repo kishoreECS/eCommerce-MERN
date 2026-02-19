@@ -1,0 +1,28 @@
+{
+  "name": "ecommerce-mern",
+  "version": "1.0.0",
+  "description": "eCommerce using MERN stack",
+  "homepage": "https://github.com/kishoreECS/eCommerce-MERN#readme",
+  "bugs": {
+    "url": "https://github.com/kishoreECS/eCommerce-MERN/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kishoreECS/eCommerce-MERN.git"
+  },
+  "license": "ISC",
+  "author": "Kishore",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "dev": "set NODE_ENV=development && nodemon Backend/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
