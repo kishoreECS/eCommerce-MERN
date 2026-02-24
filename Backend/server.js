@@ -9,6 +9,20 @@ connectDatabase();
 
 const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, () => {
+const serve = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV} mode`);
+});
+
+process.on("unhandledRejection", (err) =>{
+  console.log(`Error: ${err.message}`);
+  console.log("Shutting down the server due to unhandled promise rejection");
+  serve.close(() => {process.exit(1);
+  });
+})
+
+process.on("uncaughtException", (err) =>{
+  console.log(`Error: ${err.message}`);
+  console.log("Shutting down the server due to uncaught exception error");  
+   serve.close(() => {process.exit(1);
+  });
 });

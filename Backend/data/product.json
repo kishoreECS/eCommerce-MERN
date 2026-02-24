@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Apple iPhone 14",
+    "description": "Latest Apple iPhone with A15 Bionic chip and advanced camera features.",
+    "price": 79999,
+    "images": [
+      { "filename": "iphone14-front.jpg" },
+      { "filename": "iphone14-back.jpg" }
+    ],
+    "category": "Electronics",
+    "stock": 50,
+    "ratings": 4.5,
+    "numberOfReviews": 2,
+    "reviews": [
+      {
+        "name": "Rahul",
+        "rating": "5",
+        "comment": "Amazing phone with great performance."
+      },
+      {
+        "name": "Anjali",
+        "rating": "4",
+        "comment": "Camera quality is excellent."
+      }
+    ],
+    "seller": "Apple Store India"
+  },
+  {
+    "name": "Sony Alpha DSLR Camera",
+    "description": "High-resolution DSLR camera suitable for professional photography.",
+    "price": 54999,
+    "images": [
+      { "filename": "sony-alpha-front.jpg" }
+    ],
+    "category": "Cameras",
+    "stock": 20,
+    "ratings": 4.2,
+    "numberOfReviews": 1,
+    "reviews": [
+      {
+        "name": "Karthik",
+        "rating": "4",
+        "comment": "Very good image quality."
+      }
+    ],
+    "seller": "Sony Authorized Dealer"
+  },
+  {
+    "name": "HP Pavilion Laptop",
+    "description": "Powerful laptop with Intel i5 processor and 16GB RAM.",
+    "price": 65999,
+    "images": [
+      { "filename": "hp-pavilion.jpg" }
+    ],
+    "category": "Laptops",
+    "stock": 15,
+    "ratings": 4,
+    "numberOfReviews": 0,
+    "reviews": [],
+    "seller": "HP World"
+  },
+  {
+    "name": "Noise Wireless Headphones",
+    "description": "Comfortable wireless headphones with deep bass and long battery life.",
+    "price": 2999,
+    "images": [
+      { "filename": "noise-headphones.jpg" }
+    ],
+    "category": "Headphones",
+    "stock": 100,
+    "ratings": 3.8,
+    "numberOfReviews": 1,
+    "reviews": [
+      {
+        "name": "Suresh",
+        "rating": "4",
+        "comment": "Good sound quality for the price."
+      }
+    ],
+    "seller": "Noise Official Store"
+  },
+  {
+    "name": "Adidas Running Shoes",
+    "description": "Lightweight and comfortable running shoes for daily workouts.",
+    "price": 4999,
+    "images": [
+      { "filename": "adidas-shoes.jpg" }
+    ],
+    "category": "Clothes/Shoes",
+    "stock": 60,
+    "ratings": 4.6,
+    "numberOfReviews": 2,
+    "reviews": [
+      {
+        "name": "Vikram",
+        "rating": "5",
+        "comment": "Very comfortable and stylish."
+      },
+      {
+        "name": "Neha",
+        "rating": "4",
+        "comment": "Perfect fit for running."
+      }
+    ],
+    "seller": "Adidas India"
+  }
+]

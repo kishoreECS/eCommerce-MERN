@@ -1,4 +1,6 @@
 const Product = require("../models/productModels");
+const ErrorHandler = require("../utilis/errorHandler");
+const catchAsyncError = require("../middlewares/catchAsyncError");
 
 // Get All products
 exports.getProducts = async (req, res, next) => {
@@ -11,24 +13,21 @@ exports.getProducts = async (req, res, next) => {
 };
 
 // Product Create
-exports.createProduct = async (req, res, next) => {
+exports.createProduct = catchAsyncError( async (req, res, next) => {
   const product = await Product.create(req.body);
   res.status(201).json({
     success: true,
     product,
   });
-};
+});
 
 // Get By ID
-exports.getById = async (req, res) => {
+exports.getById = async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.id);
 
     if (!product) {
-      return res.status(404).json({
-        success: false,
-        message: "Product not found",
-      });
+      return next(new ErrorHandler("Product not found test", 404));
     }
 
     res.status(200).json({
@@ -36,10 +35,11 @@ exports.getById = async (req, res) => {
       product,
     });
   } catch (error) {
-    return res.status(400).json({
-      success: false,
-      message: "Invalid product ID",
-    });
+    if (error.name === "CastError") {
+      return next(new ErrorHandler("Product not found test", 404));
+    }
+
+    next(error);
   }
 };
 
