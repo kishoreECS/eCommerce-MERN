@@ -77,6 +77,9 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter product seller"],
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

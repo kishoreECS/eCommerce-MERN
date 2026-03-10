@@ -1,3 +1,3 @@
-module.exports = (fn) =>(res, req, next) =>{
- return Promise.resolve(fn(res, req, next)).catch(next);
-}
+module.exports = (fn) => (req, res, next) => {
+  return Promise.resolve(fn(req, res, next)).catch(next);
+};
