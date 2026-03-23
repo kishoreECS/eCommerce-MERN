@@ -1,12 +1,21 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import productImg from "../../assets/images/products/1.jpg";
 import productImg2 from "../../assets/images/products/2.jpg";
 import productImg3 from "../../assets/images/products/3.jpg";
 import productImg4 from "../../assets/images/products/4.jpg";
 import productImg5 from "../../assets/images/products/5.jpg";
 import MetaData from "./MetaData";
+import { getProducts } from "../../actions/ProductsActions";
+import { useDispatch } from "react-redux";
 
 function Home() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getProducts(dispatch);
+  }, [dispatch]);
+  
+
   return (
     <Fragment>
       <MetaData

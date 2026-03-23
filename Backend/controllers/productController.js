@@ -4,20 +4,37 @@ const catchAsyncError = require("../middlewares/catchAsyncError");
 const APIFeatures = require("../utilis/apiFeatures");
 
 // Get All products
-exports.getProducts = async (req, res, next) => {
+exports.getProducts = catchAsyncError(async (req, res, next) => {
   const perPage = 2;
+
   const apiFeatures = new APIFeatures(Product.find(), req.query)
     .search()
     .filter()
     .pagination(perPage);
 
   const products = await apiFeatures.query;
+
   res.status(200).json({
     success: true,
     count: products.length,
     products,
   });
-};
+});
+
+// exports.getProducts = async (req, res, next) => {
+//   const perPage = 2;
+//   const apiFeatures = new APIFeatures(Product.find(), req.query)
+//     .search()
+//     .filter()
+//     .pagination(perPage);
+
+//   const products = await apiFeatures.query;
+//   res.status(200).json({
+//     success: true,
+//     count: products.length,
+//     products,
+//   });
+// };
 
 // Product Create
 exports.createProduct = catchAsyncError(async (req, res, next) => {
@@ -166,15 +183,15 @@ exports.getProductReviews = catchAsyncError(async (req, res, next) => {
 // Delete Review
 exports.deleteReview = catchAsyncError(async (req, res, next) => {
   const product = await Product.findById(req.query.productId);
-  const reviews = product.reviews.filter((review) => {
-    review._id.toString() !== req.query.id.toString();
-  });
+
+  const reviews = product.reviews.filter(
+    (review) => review._id.toString() !== req.query.id.toString()
+  );
 
   const numberOfReviews = reviews.length;
+
   let ratings =
-    reviews.reduce((acc, review) => {
-      return review.rating + acc;
-    }, 0) / reviews.length;
+    reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
 
   ratings = isNaN(ratings) ? 0 : ratings;
 
@@ -188,3 +205,27 @@ exports.deleteReview = catchAsyncError(async (req, res, next) => {
     success: true,
   });
 });
+// exports.deleteReview = catchAsyncError(async (req, res, next) => {
+//   const product = await Product.findById(req.query.productId);
+//   const reviews = product.reviews.filter((review) => {
+//     review._id.toString() !== req.query.id.toString();
+//   });
+
+//   const numberOfReviews = reviews.length;
+//   let ratings =
+//     reviews.reduce((acc, review) => {
+//       return review.rating + acc;
+//     }, 0) / reviews.length;
+
+//   ratings = isNaN(ratings) ? 0 : ratings;
+
+//   await Product.findByIdAndUpdate(req.query.productId, {
+//     reviews,
+//     ratings,
+//     numberOfReviews,
+//   });
+
+//   res.status(200).json({
+//     success: true,
+//   });
+// });

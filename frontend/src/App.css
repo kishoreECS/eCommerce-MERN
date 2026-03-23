@@ -77,11 +77,12 @@ nav {
 
 .card-title a {
   color: #2e2e2e;
+  text-decoration: none;
 }
 
 .card-title a:hover {
   color: #fa9c23;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .card-body {
